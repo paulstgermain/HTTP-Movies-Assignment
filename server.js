@@ -93,6 +93,7 @@ app.put("/api/movies/:id", (req, res) => {
     }
     return movie;
   });
+  console.log(movies);
   res.status(200).send(req.body);
 });
 

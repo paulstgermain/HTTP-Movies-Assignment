@@ -5,7 +5,7 @@ import MovieCard from "./MovieCard";
 
 function Movie({ addToSavedList }) {
   const [movie, setMovie] = useState(null);
-  const params = useParams();
+  const { id } = useParams();
 
   const fetchMovie = (id) => {
     axios
@@ -19,8 +19,8 @@ function Movie({ addToSavedList }) {
   };
 
   useEffect(() => {
-    fetchMovie(params.id);
-  }, [params.id]);
+    fetchMovie(id);
+  }, [id]);
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -30,7 +30,7 @@ function Movie({ addToSavedList }) {
     <div className="save-wrapper">
       <MovieCard movie={movie} />
 
-      <Link to={`/update-movie/${params.id}`}>
+      <Link to={`/update-movie/${id}`}>
         <div className='update-button'>Update</div>
       </Link>
 
