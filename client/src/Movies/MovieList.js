@@ -6,7 +6,7 @@ function MovieList({ movies }) {
   return (
     <div className="movie-list">
       {
-        movies.map(movie => (
+        movies && movies.map(movie => (
           <Link key={movie.id} to={`/movies/${movie.id}`}>
             <MovieCard movie={movie} />
           </Link>
