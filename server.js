@@ -93,6 +93,7 @@ app.put("/api/movies/:id", (req, res) => {
     }
     return movie;
   });
+  console.log(movies);
   res.status(200).send(req.body);
 });
 
@@ -100,7 +101,7 @@ app.delete("/api/movies/:id", (req, res) => {
   if (!req.params.id)
     res.status(400).send("Your request is missing the movie id");
   movies = movies.filter(movie => `${movie.id}` !== req.params.id);
-  res.status(202).send(req.params.id);
+  res.status(202).send(movies);
 });
 
 app.get("/", function(req, res) {
